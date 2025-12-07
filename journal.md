@@ -1,4 +1,4 @@
-Journal Entry: Session # 1 Nov 17 - Nov 21, 2025
+Journal Entry: Session # 1
 Project: BrewFinderPDX
 
 A dashboard web application that visualizes Portland café data (locations, ratings, pricing, neighborhoods, etc.).
@@ -58,3 +58,41 @@ Outside Sources Used:
 - React Router documentation — https://reactrouter.com
 - Create React App docs — https://create-react-app.dev
 - CSS Flexbox guide — https://css-tricks.com/snippets/css/a-guide-to-flexbox
+
+Journal Entry: Session # 2
+Project: BrewFinderPDX
+
+Implemented the accessibility feedback I received from a classmate. Adding the axe-core accessibility checker to the React project so I can automatically detect accessibility issues during development. Specifically, I added the recommended setup from the lecture slides to src/index.js, using a conditional import so it only runs in development mode. This ensures axe core is not bundled into production builds.
+
+Technologies involved:
+
+- React 18
+- react-router-dom
+- @axe-core/react
+- Node / npm (package management)
+- Browser DevTools Console for verification
+
+In src/index.js I added:
+if (process.env.NODE_ENV !== "production") {
+import("@axe-core/react").then(({ default: axe }) => {
+axe(React, ReactDOM, 1000);
+console.log("react accessibility checker initialized");
+});
+}
+This matches the approach recommended in class for React project
+
+Issues encountered:
+
+- Originally considered using the vite example but that code did not match Create-React-App structure
+- Confirmed in class notes and through experimentation that process.env.NODE_ENV is correct for CRA
+
+External resources referenced:
+
+- lecture slides CS463 Chapter 12 Testing Frameworks
+- React environment variable docs
+- NPM documentation for @axe-core/react
+
+Next steps:
+
+- Commit and push this change on its own branch
+- Continue building core dashboard pages (Home, Cafes, Metrics)
