@@ -125,3 +125,37 @@ External resources referenced:
 - Google Maps JavaScript API & Places API: Used for searching and retrieving café data, including names, addresses, ratings, price levels, and open status. https://developers.google.com/maps/documentation/javascript/places
 - Google fonts: Imported and used to style headings and branding (“Pacifico” and “Playfair Display”).https://fonts.googlecom/
 - UI images: Pinterest (transparent coffee shop icon)
+
+Journal Entry: Session # 4
+
+Accomplishments:
+
+- Completely redesigned the Metrics page UX
+- Switched from mixed chart types to a single donut visualization for clarity and consistency
+- Implemented neighborhood filter buttons (Downtown/PSU, Pearl District, SE Division/Clinton, NE Alberta Arts) to dynamically change the visualization based on area
+- Integrated live Google Places API data to: - Fetch coffee shops based on different locations - Aggregate Google review counts per cafe - Sort cafes by total reviews, descending
+- Created a rainbow color palette that clearly differentiates donut slices
+- Matching legend list that shows:
+  - Coffee shop name
+  - Corresponding color
+  - Review count
+
+Technical details:
+
+- Used react-chartjs-2 + Chart.js
+- Generated a dynamic 20+ color array for maximum readability
+- Created a reusable function to:
+  - Fetch data based on geolocation parameters
+  - Map Places results to { name, review_count }
+  - Compute donut labels and datasets.data
+
+Challenges:
+
+- Original color scheme resulted in indistinguishable slices, solved via custom random/curated color generation
+- Google Places API returns variable neighborhoods, implementing button presets helps control data quality
+
+External resources used:
+
+- Color palettes: Tailwind UI color spectrum for chart palettes
+- Chart.js documentation: https://www.chartjs.org/docs/latest/
+- Google Places API textSearch reference

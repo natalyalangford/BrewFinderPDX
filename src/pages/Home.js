@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
 import "../styles/app.css";
 import "../styles/home.css";
 import cafesImg from "../assets/home-cafes.jpg";
@@ -21,54 +20,54 @@ export default function Home() {
 
       {/* feature cards */}
       <section className="feature-grid" aria-label="Main dashboard sections">
-        {/* cafes card */}
+        {/* Cafes card */}
         <article className="feature-card">
-          <h2 className="feature-title">Explore Cafes</h2>
-          <img
-            src={cafesImg}
-            alt="Cozy Portland coffee shop interior"
-            className="feature-image"
-          />
-          <p className="feature-text">
-            Browse coffee shops across Portland, see ratings, price level, and
-            whether they&apos;re open right now.
-          </p>
-          <Link to="/cafes" className="feature-button">
-            Go to Cafes
+          <Link to="/cafes" className="feature-card-link">
+            <h2 className="feature-title">Explore Cafes</h2>
+            <img
+              src={cafesImg}
+              alt="Illustration of a cozy coffee shop storefront"
+              className="feature-image"
+            />
+            <p className="feature-text">
+              Browse coffee shops across Portland, see ratings, price level, and
+              whether they&apos;re open right now.
+            </p>
+            <span className="feature-card-cta">Go to Cafe Directory →</span>
           </Link>
         </article>
 
         {/* beans card */}
         <article className="feature-card">
-          <h2 className="feature-title">Coffee Beans</h2>
-          <img
-            src={beansImg}
-            alt="Coffee beans in a burlap sack"
-            className="feature-image"
-          />
-          <p className="feature-text">
-            (Coming soon) Search beans by roast, origin, and flavor profile to
-            build your perfect brew.
-          </p>
-          <Link to="/beans" className="feature-button feature-button-ghost">
-            Beans Explorer
+          <Link to="/beans" className="feature-card-link">
+            <h2 className="feature-title">Coffee Beans</h2>
+            <img
+              src={beansImg}
+              alt="Coffee beans arranged in a speech bubble"
+              className="feature-image"
+            />
+            <p className="feature-text">
+              Search beans by roast, origin, and flavor profile to build your
+              perfect brew.
+            </p>
+            <span className="feature-card-cta">Beans Explorer →</span>
           </Link>
         </article>
 
         {/* metrics card */}
         <article className="feature-card">
-          <h2 className="feature-title">City Metrics</h2>
-          <img
-            src={metricsImg}
-            alt="Coffee cup next to charts and a laptop"
-            className="feature-image"
-          />
-          <p className="feature-text">
-            (Coming soon) Visualize ratings, price trends, and neighborhood cafe
-            density with interactive charts.
-          </p>
-          <Link to="/metrics" className="feature-button feature-button-ghost">
-            View Metrics
+          <Link to="/metrics" className="feature-card-link">
+            <h2 className="feature-title">City Metrics</h2>
+            <img
+              src={metricsImg}
+              alt="White coffee cup with beans on a saucer"
+              className="feature-image"
+            />
+            <p className="feature-text">
+              Visualize ratings, price trends, and neighborhood cafe density
+              with interactive charts.
+            </p>
+            <span className="feature-card-cta">View Metrics →</span>
           </Link>
         </article>
       </section>
