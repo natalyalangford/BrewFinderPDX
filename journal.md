@@ -1,4 +1,4 @@
-Journal Entry: Session # 1 Nov 17 - Nov 21, 2025
+Journal Entry: Session # 1
 Project: BrewFinderPDX
 
 A dashboard web application that visualizes Portland café data (locations, ratings, pricing, neighborhoods, etc.).
@@ -58,3 +58,70 @@ Outside Sources Used:
 - React Router documentation — https://reactrouter.com
 - Create React App docs — https://create-react-app.dev
 - CSS Flexbox guide — https://css-tricks.com/snippets/css/a-guide-to-flexbox
+
+Journal Entry: Session # 2
+
+Implemented the accessibility feedback I received from a classmate. Adding the axe-core accessibility checker to the React project so I can automatically detect accessibility issues during development. Specifically, I added the recommended setup from the lecture slides to src/index.js, using a conditional import so it only runs in development mode. This ensures axe core is not bundled into production builds.
+
+Technologies involved:
+
+- React 18
+- react-router-dom
+- @axe-core/react
+- Node / npm (package management)
+- Browser DevTools Console for verification
+
+In src/index.js I added:
+if (process.env.NODE_ENV !== "production") {
+import("@axe-core/react").then(({ default: axe }) => {
+axe(React, ReactDOM, 1000);
+console.log("react accessibility checker initialized");
+});
+}
+This matches the approach recommended in class for React project
+
+Issues encountered:
+
+- Originally considered using the vite example but that code did not match Create-React-App structure
+- Confirmed in class notes and through experimentation that process.env.NODE_ENV is correct for CRA
+
+External resources referenced:
+
+- lecture slides CS463 Chapter 12 Testing Frameworks
+- React environment variable docs
+- NPM documentation for @axe-core/react
+
+Next steps:
+
+- Commit and push this change on its own branch
+- Continue building core dashboard pages (Home, Coffe Shops, Metrics)
+
+Journal Entry: Session # 3
+
+Focused on improving the user interface and dashboard feel. Main goal was to make the home page visually appealing and introduce the three major feature areas of the application
+
+Task List:
+
+- Found new transparent coffee themed images and stored them in src/assets/
+- Added three feature cards to the Home page (coffee shops, beans, metrics), each with a title, description, and image
+- Styled the cards using CSS (feature-card, feature-grid, feature-image) to achieve consistent sizing, spacing, and visual balance
+- Switched the site typography to a cozy coffee shop vibe using the google fonts pacifico and playfair display
+- Updated the navigation bar background color to a dark brown with beige text for consistency with the theme
+- Adjusted Home page background to a warm beige color and ensured card backgrounds matched
+
+Reflection / next steps:
+
+- The Home page now looks much closer to a real dashboard landing experience. Images are still a little large in some cases, but they look clean against the beige background
+
+Next session goals:
+
+- Make each feature card clickable
+- Add hover animations and transitions
+- Finish chart components on the Metrics page
+- Possibly include small at a glance/quixk summary KPIs on the Home page (avg rating, number of coffee shops)
+
+External resources referenced:
+
+- Google Maps JavaScript API & Places API: Used for searching and retrieving café data, including names, addresses, ratings, price levels, and open status. https://developers.google.com/maps/documentation/javascript/places
+- Google fonts: Imported and used to style headings and branding (“Pacifico” and “Playfair Display”).https://fonts.googlecom/
+- UI images: Pinterest (transparent coffee shop icon)

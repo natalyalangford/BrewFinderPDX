@@ -1,35 +1,65 @@
+/* ============================= */
+/*   COFFEE SHOP NAVBAR STYLES   */
+/* ============================= */
+
+:root {
+  --espresso-dark: #3b2f2f;
+  --espresso-deep: #2a1f1c;
+  --cream: #f5eee6;
+  --accent: #c88a5a;
+}
+
+/* NAV CONTAINER */
 .nav {
+  background: var(--espresso-deep);
+  padding: 0.8rem 1.5rem;
+
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  padding: 14px 24px;
-  background: #111827;
-  border-bottom: 1px solid #1f2937;
+  align-items: center;
+
+  border-bottom: 2px solid var(--accent);
+
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
-.nav-title {
-  font-weight: 700;
-  letter-spacing: 0.4px;
+/* BRAND / TITLE */
+.brand {
+  font-family: "Borel", cursive;
+  font-size: 1.5rem;
+  color: var(--cream);
+  text-decoration: none;
 }
 
+/* LINKS WRAPPER */
 .nav-links {
   display: flex;
-  gap: 14px;
+  gap: 1rem;
 }
 
+/* INDIVIDUAL LINKS */
 .nav-link {
-  color: #cbd5e1;
+  font-family: "DM Sans", sans-serif;
+  color: var(--cream);
   text-decoration: none;
-  padding: 6px 10px;
-  border-radius: 8px;
+
+  padding: 0.45rem 0.9rem;
+  border-radius: 6px;
+
+  transition: background 0.25s ease, color 0.25s ease;
 }
 
+/* HOVER */
 .nav-link:hover {
-  background: #1f2937;
-  color: #fff;
+  background: var(--accent);
+  color: var(--espresso-deep);
 }
 
+/* ACTIVE LINK (React Router) */
 .nav-link.active {
-  background: #2563eb;
-  color: white;
+  background: var(--accent);
+  color: var(--espresso-deep);
+  font-weight: 600;
 }
