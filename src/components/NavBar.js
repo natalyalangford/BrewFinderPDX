@@ -7,16 +7,20 @@ export default function NavBar() {
 
   return (
     <nav className="nav" aria-label="Primary">
-      <div className="nav-title">BrewFinderPDX</div>
+      <div className="nav-title brand">BrewFinderPDX</div>
+
       <div className="nav-links">
         <NavLink to="/home" className={linkClass}>
           Home
         </NavLink>
+        <NavLink to="/beans" className={linkClass}>
+          Beans
+        </NavLink>
         <NavLink to="/cafes" className={linkClass}>
-          Cafes
+          Cafe Directory
         </NavLink>
         <NavLink to="/metrics" className={linkClass}>
-          Metrics
+          Cafe Stats
         </NavLink>
         <NavLink to="/about" className={linkClass}>
           About

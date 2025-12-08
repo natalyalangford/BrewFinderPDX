@@ -1,16 +1,236 @@
-.app {
-  min-height: 100vh;
-  background: #0f172a; /* deep navy */
-  color: #e2e8f0;
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+/* theme variables*/
+:root {
+  --bg-cream: #f5eee6;
+  --bg-panel: #fff7ec;
+  --espresso: #3b2f2f;
+  --milk: #fdfaf5;
+  --accent: #c88a5a;
+  --accent-soft: #f0d5b8;
+  --muted: #7b6a58;
+  --border-soft: #e3cbb1;
+  --espresso-dark: #3b2f2f;
+  --espresso-deep: #2a1f1c;
+  --cream: #f5eee6;
+  --cream-soft: #fdfaf5;
+  --accent: #c88a5a;
 }
 
+/* global layout */
+
+body {
+  background-color: var(--bg-cream);
+  color: var(--espresso);
+  font-family: "DM Sans", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* shell around the whole app */
 .app-main {
-  padding: 24px;
+  min-height: 100vh;
+}
+
+/* every page section uses */
+.page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 4rem;
+}
+
+.page-intro {
+  max-width: 640px;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+/* cozy page  */
+
+.page-title {
+  font-family: "Borel", cursive;
+  font-size: 2.4rem;
+  color: #3b2f2f; /* espresso */
+  margin-bottom: 0.4rem;
+}
+
+.page-subtitle {
+  font-family: "DM Sans", sans-serif;
+  font-size: 1rem;
+  color: #6a5a4b; /* softer roast */
+  margin-bottom: 2rem;
+}
+
+/* ---------- HEADINGS ---------- */
+
+/* pacifico headings */
+.coffee-heading {
+  font-family: "Pacifico", cursive;
+  font-weight: 400;
+  font-size: 2.5rem;
+  color: var(--espresso);
+  letter-spacing: 0.03em;
+  margin-bottom: 0.75rem;
+}
+
+.coffee-heading-sm {
+  font-family: "Pacifico", cursive;
+  font-weight: 400;
+  font-size: 1.75rem;
+  color: var(--espresso);
+  letter-spacing: 0.03em;
+}
+
+/* CAFES PAGE: SEARCH + CARDS* /
+
+.cafes-page {
   max-width: 1100px;
   margin: 0 auto;
 }
 
-.page h1 {
-  margin-bottom: 8px;
+/* header spacing */
+.cafes-header {
+  margin-bottom: 1.5rem;
+}
+
+/* search bar */
+.cafe-search {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  margin-top: 1rem;
+  max-width: 480px;
+}
+
+.cafe-search-input {
+  flex: 1;
+  padding: 0.6rem 0.8rem;
+  border-radius: 999px;
+  border: 1px solid #d3c2af;
+  font-size: 0.95rem;
+  background: #fff8f1;
+  color: #3b2f2f;
+}
+
+.cafe-search-input::placeholder {
+  color: #b39a84;
+}
+
+.cafe-search-input:focus {
+  outline: none;
+  border-color: #c88a5a;
+  box-shadow: 0 0 0 2px rgba(200, 138, 90, 0.25);
+}
+
+.cafe-search-button {
+  padding: 0.55rem 1.1rem;
+  border-radius: 999px;
+  border: none;
+  background: #c88a5a;
+  color: #fffaf5;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.1s ease;
+}
+
+.cafe-search-button:hover {
+  background: #b47446;
+  transform: translateY(-1px);
+}
+
+/* loading / error / empty messages */
+.cafes-status {
+  margin-top: 1.5rem;
+  font-size: 0.95rem;
+  color: #6a5a4b;
+}
+
+.cafes-status-loading {
+  font-style: italic;
+}
+
+.cafes-status-error {
+  color: #b3261e;
+  font-weight: 500;
+}
+
+/* card grid */
+.cafe-list {
+  margin-top: 1.75rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+/*individual card */
+.cafe-card {
+  background: #fff8f1;
+  border-radius: 18px;
+  padding: 1.1rem 1.25rem;
+  box-shadow: 0 8px 18px rgba(52, 33, 20, 0.12);
+  border: 1px solid #ead9c6;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.cafe-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(52, 33, 20, 0.18);
+}
+
+.cafe-name {
+  font-family: "Borel", cursive;
+  font-size: 1.3rem;
+  margin: 0;
+  color: #3b2f2f;
+}
+
+.cafe-address {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #7b6a58;
+}
+
+/* meta row (rating / price / open status) */
+.cafe-meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.4rem;
+  align-items: center;
+  font-size: 0.85rem;
+}
+
+.cafe-rating {
+  color: #5b4633;
+}
+
+.cafe-price {
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  background: #f1e0cc;
+  color: #5b4633;
+}
+
+/* open/closed */
+.cafe-open {
+  padding: 0.2rem 0.7rem;
+  border-radius: 999px;
+  font-weight: 500;
+}
+
+.cafe-open.open {
+  background: #d8f5d0;
+  color: #245b2a;
+}
+
+.cafe-open.closed {
+  background: #ffe0e0;
+  color: #8b1a1a;
+}
+
+.cafe-open.unknown {
+  background: #e4dde0;
+  color: #4f3e4a;
 }

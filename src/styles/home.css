@@ -1,0 +1,36 @@
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  padding: 2rem 1rem;
+}
+
+.feature-card {
+  background: #f9f2e8;
+  border: 1px solid #eadfd2;
+  border-radius: 16px;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0px 4px 12px rgba(120, 90, 60, 0.12);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0px 6px 18px rgba(120, 90, 60, 0.2);
+}
+
+.feature-title {
+  font-family: "Pacifico", cursive;
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+  color: #4b2f1d;
+}
+
+.feature-image {
+  width: 260px;
+  max-width: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+  margin: 0 auto 1rem;
+}
