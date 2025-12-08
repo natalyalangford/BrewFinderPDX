@@ -1,6 +1,4 @@
-/* ============================= */
-/*   COFFEE SHOP NAVBAR STYLES   */
-/* ============================= */
+/*  nav bar styles */
 
 :root {
   --espresso-dark: #3b2f2f;
@@ -9,7 +7,7 @@
   --accent: #c88a5a;
 }
 
-/* NAV CONTAINER */
+/* nav containers */
 .nav {
   background: var(--espresso-deep);
   padding: 0.8rem 1.5rem;
@@ -25,7 +23,7 @@
   z-index: 100;
 }
 
-/* BRAND / TITLE */
+/* title */
 .brand {
   font-family: "Borel", cursive;
   font-size: 1.5rem;
@@ -33,13 +31,13 @@
   text-decoration: none;
 }
 
-/* LINKS WRAPPER */
+/* links wrapper */
 .nav-links {
   display: flex;
   gap: 1rem;
 }
 
-/* INDIVIDUAL LINKS */
+/* individual link */
 .nav-link {
   font-family: "DM Sans", sans-serif;
   color: var(--cream);
@@ -51,13 +49,13 @@
   transition: background 0.25s ease, color 0.25s ease;
 }
 
-/* HOVER */
+/* hover */
 .nav-link:hover {
   background: var(--accent);
   color: var(--espresso-deep);
 }
 
-/* ACTIVE LINK (React Router) */
+/* react router */
 .nav-link.active {
   background: var(--accent);
   color: var(--espresso-deep);

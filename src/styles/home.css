@@ -15,9 +15,31 @@
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.feature-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0px 6px 18px rgba(120, 90, 60, 0.2);
+.feature-card-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+  height: 100%;
+}
+
+.feature-card-link:focus-visible {
+  outline: 2px solid #c97b63;
+  outline-offset: 4px;
+}
+
+.feature-card:hover,
+.feature-card:focus-within {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(64, 40, 24, 0.18);
+}
+
+.feature-card-cta {
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+  color: #8b5a3c;
+  text-decoration: underline;
 }
 
 .feature-title {

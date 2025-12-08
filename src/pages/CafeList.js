@@ -53,14 +53,14 @@ export default function CafeList() {
     });
   }
 
-  // initial load: grab some coffeeshops in Portland
+  // initial load grab some coffeeshops in Portland
   useEffect(() => {
     fetchCafes();
   }, []);
 
   function handleSubmit(event) {
     event.preventDefault();
-    // if search box is empty, just load default portland coffee shops again
+    // if search box is empt load default portland coffee shops
     if (!searchText.trim()) {
       fetchCafes();
     } else {
@@ -113,7 +113,7 @@ export default function CafeList() {
 
                 <div className="cafe-meta-row">
                   <span className="cafe-rating">
-                    ⭐ {shop.rating ?? "N/A"}
+                    {shop.rating ?? "N/A"}
                     {shop.userRatingsTotal
                       ? ` (${shop.userRatingsTotal} reviews)`
                       : ""}
