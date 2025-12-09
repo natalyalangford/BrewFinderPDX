@@ -1,4 +1,4 @@
-// src/pages/Metrics.js
+//  donut chart of cafe review share by neighborhood
 import React, { useEffect, useState } from "react";
 import "../styles/app.css";
 import "../styles/home.css";
@@ -190,8 +190,13 @@ export default function Metrics() {
       <header className="page-header">
         <h1 className="page-title">Cafe Stats</h1>
         <p className="page-intro">
-          Donut chart showing how much review “share” each coffee shop has in a
-          neighborhood
+          The following visualization shows how review activity is distributed
+          across coffee shops in a selected Portland neighborhoods. By comparing
+          each coffee shops “share” of total reviews, it can be quickly identify
+          which spots are the most popular, most visited, or most talked about
+          within the choosen area. Higher review counts often indicate high foot
+          traffic, stronger customer engagement, and local favorites that could
+          be worth checking out!
         </p>
 
         {/* neighborhood selector buttons */}
@@ -218,7 +223,7 @@ export default function Metrics() {
         </div>
       </header>
 
-      {loading && <p>Loading café data…</p>}
+      {loading && <p>Loading coffee shop data…</p>}
       {error && <p className="error-text">{error}</p>}
 
       {!loading && !error && cafesWithReviews.length > 0 && (
@@ -232,7 +237,9 @@ export default function Metrics() {
 
           {/* own legend: color dot + shop name + review count */}
           <div className="metrics-legend">
-            <h2 className="metrics-legend-title">Cafes in this neighborhood</h2>
+            <h2 className="metrics-legend-title">
+              Coffee Shops in this neighborhood
+            </h2>
             <ul className="metrics-legend-list">
               {cafesWithReviews.map((cafe, idx) => (
                 <li key={cafe.id} className="metrics-legend-item">

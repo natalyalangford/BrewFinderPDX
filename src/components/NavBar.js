@@ -13,9 +13,6 @@ export default function NavBar() {
         <NavLink to="/home" className={linkClass}>
           Home
         </NavLink>
-        <NavLink to="/beans" className={linkClass}>
-          Beans
-        </NavLink>
         <NavLink to="/cafes" className={linkClass}>
           Cafe Directory
         </NavLink>

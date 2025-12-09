@@ -124,7 +124,7 @@ body {
   padding: 0.55rem 1.1rem;
   border-radius: 999px;
   border: none;
-  background: #c88a5a;
+  background-color: #b45309;
   color: #fffaf5;
   font-size: 0.9rem;
   font-weight: 600;
@@ -317,7 +317,7 @@ body {
 }
 
 .hood-button--active {
-  background-color: #c56b3f;
+  background-color: #b45309;
   color: #fff7ed;
   border-color: #c56b3f;
 }

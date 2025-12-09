@@ -4,7 +4,6 @@ import NavBar from "./components/NavBar";
 
 import Home from "./pages/Home";
 import CafeList from "./pages/CafeList";
-import BeanList from "./pages/BeanList";
 import Metrics from "./pages/Metrics";
 import About from "./pages/About";
 
@@ -19,7 +18,6 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Navigate to="/home" replace />} />
           <Route path="/home" element={<Home />} />
-          <Route path="/beans" element={<BeanList />} />
           <Route path="/cafes" element={<CafeList />} />
           <Route path="/metrics" element={<Metrics />} />
           <Route path="/about" element={<About />} />

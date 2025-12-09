@@ -74,16 +74,21 @@ export default function CafeList() {
       <header className="cafes-header">
         <h1 className="page-title">Coffee Shops in Portland</h1>
         <p className="page-subtitle">
-          This page uses the Google Places API to search for coffee shops around
-          Portland. Filter by name or neighborhood to discover new spots.
+          Explore Portland’s coffee scene using live data from the Google Places
+          API. Search by name or neighborhood to explore local coffee shops and
+          find your next favorite spot.
         </p>
 
         <form className="cafe-search" onSubmit={handleSubmit}>
+          <label htmlFor="cafe-search" className="sr-only">
+            Search for a coffee shop or neighborhood
+          </label>
           <input
+            id="cafe-search"
             type="text"
             value={searchText}
             onChange={(e) => setSearchText(e.target.value)}
-            placeholder="Search by coffee shop or neighborhood"
+            placeholder="Search by coffee shop or neighborhood (e.g., 'Starbucks', or '23rd St'"
             className="cafe-search-input"
           />
           <button type="submit" className="cafe-search-button">

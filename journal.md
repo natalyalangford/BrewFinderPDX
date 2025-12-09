@@ -159,3 +159,38 @@ External resources used:
 - Color palettes: Tailwind UI color spectrum for chart palettes
 - Chart.js documentation: https://www.chartjs.org/docs/latest/
 - Google Places API textSearch reference
+
+Journal Session # 5
+
+Accomplishments:
+
+- Focused on refinisng the Coffee Shop metrics/chart page, improving accesibility, polishing UI and cleaning up small UX issues across the dashboard.
+- Major improvements to the metrics/coffe shop stats page
+  - Rewrote the page logic and layout to use a single meaningful visualization
+  - Reworite the introductory paragraphs for each feature page to be more meaingful and data driven. Eg. clarifed why the donut chart matters and what insights users can gt from it
+- Accessibility fixes using WAVE:
+  - Missing form label
+  - ARIA attributs
+  - Color contrast issues with buttons
+- Removed Bean page/feature, could not end up finding a good API for coffee beans. Updated page navigation with safely linking the about page instead of Bean on the home page.
+  - Cleaned up unnused imports, routes and components related to the coffee beans feature
+- About page: Added an about page that goes into further detail about the project and myself
+  - The purpose of BrewFinderPDX
+  - Technologies used
+  - Short personal note about my intered in portland and coffee
+  - Added links to personal github and linkedin
+- Codebase cleanup & linkting
+  - Removed unused components
+  - Ensure all pages run without console errors
+  - WAVE test
+
+Reflection:
+
+This session brought the project all together visually, technicallys and structually. The Cofee shop metrics page delivers meaningful insight using live data and the rest of the dashboard is polished and cohesive.
+
+External Resourses Used:
+
+- Google Places API reference https://developers.google.com/maps/documentation/javascript/places
+- Chart.js documentation https://www.chartjs.org/docs/latest/
+- WAVE accessibility tool https://wave.webaim.org/
+- ARIA guidelines
