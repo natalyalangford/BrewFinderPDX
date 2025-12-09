@@ -20,7 +20,7 @@ export default function Home() {
 
       {/* feature cards */}
       <section className="feature-grid" aria-label="Main dashboard sections">
-        {/* Cafes card */}
+        {/* coffee shop card */}
         <article className="feature-card">
           <Link to="/cafes" className="feature-card-link">
             <h2 className="feature-title">Explore Cafes</h2>
@@ -33,24 +33,9 @@ export default function Home() {
               Browse coffee shops across Portland, see ratings, price level, and
               whether they&apos;re open right now.
             </p>
-            <span className="feature-card-cta">Go to Cafe Directory →</span>
-          </Link>
-        </article>
-
-        {/* beans card */}
-        <article className="feature-card">
-          <Link to="/beans" className="feature-card-link">
-            <h2 className="feature-title">Coffee Beans</h2>
-            <img
-              src={beansImg}
-              alt="Coffee beans arranged in a speech bubble"
-              className="feature-image"
-            />
-            <p className="feature-text">
-              Search beans by roast, origin, and flavor profile to build your
-              perfect brew.
-            </p>
-            <span className="feature-card-cta">Beans Explorer →</span>
+            <span className="feature-card-cta">
+              Go to Coffee Shop Directory →
+            </span>
           </Link>
         </article>
 
@@ -68,6 +53,20 @@ export default function Home() {
               with interactive charts.
             </p>
             <span className="feature-card-cta">View Metrics →</span>
+          </Link>
+        </article>
+
+        {/* about card */}
+        <article className="feature-card">
+          <Link to="/about" className="feature-card-link">
+            <h2 className="feature-title">About</h2>
+            <img
+              src={beansImg}
+              alt="Coffee beans arranged in a speech bubble"
+              className="feature-image"
+            />
+            <p className="feature-text">About this project.</p>
+            <span className="feature-card-cta">Learn More →</span>
           </Link>
         </article>
       </section>
