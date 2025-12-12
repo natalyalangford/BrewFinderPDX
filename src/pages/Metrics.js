@@ -1,4 +1,6 @@
-//  donut chart of cafe review share by neighborhood
+//  donut chart of coffee shoop review share by neighborhood
+// more reviews means larger slize of dount
+// goal is to summarize neigborhood cafe activity using google places data
 import React, { useEffect, useState } from "react";
 import "../styles/app.css";
 import "../styles/home.css";
@@ -6,9 +8,10 @@ import "../styles/home.css";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
 
-ChartJS.register(ArcElement, Tooltip, Legend);
+ChartJS.register(ArcElement, Tooltip, Legend); // register chart components
 
-// portland neighborhoods
+// predefined portland neighborhoods
+// button corresponsed to each one, coffee shops within around 4000 m are fetched
 const NEIGHBORHOODS = {
   downtown: {
     label: "Downtown / PSU",
@@ -30,16 +33,20 @@ const NEIGHBORHOODS = {
 
 // call google places for given neighborhood
 function fetchCafesForCenter(center) {
+  // return a promise that resolves with cafe data
   return new Promise((resolve, reject) => {
+    // safety check to snure google maps script loaded
     if (!window.google || !window.google.maps || !window.google.maps.places) {
-      reject(new Error("Google Places library is not loaded."));
+      reject(new Error("Google places library is not loaded."));
       return;
     }
 
+    // need a DOM node for places service, use dummy div
     const service = new window.google.maps.places.PlacesService(
       document.createElement("div")
     );
 
+    // build search request
     const request = {
       location: new window.google.maps.LatLng(center.lat, center.lng),
       radius: 4000, // meters
@@ -47,8 +54,10 @@ function fetchCafesForCenter(center) {
       query: "coffee shop portland or",
     };
 
+    // make API call
     service.textSearch(request, (results, status) => {
       if (status === window.google.maps.places.PlacesServiceStatus.OK) {
+        // simplify data to just whats needed
         const mapped = results.map((place) => ({
           id: place.place_id,
           name: place.name,
@@ -64,15 +73,20 @@ function fetchCafesForCenter(center) {
 }
 
 export default function Metrics() {
+  // cafes returned from api for selected neighborhood
   const [cafes, setCafes] = useState([]);
+  // loading and error state for user feedback
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  // track current neighborhood
   const [activeHood, setActiveHood] = useState("downtown");
 
+  // initally load downtown data
   useEffect(() => {
     loadData("downtown");
   }, []);
 
+  // fetch data for selected neighborhood
   function loadData(neighborhoodKey = activeHood) {
     const hood = NEIGHBORHOODS[neighborhoodKey];
     if (!hood) return;
@@ -156,16 +170,18 @@ export default function Metrics() {
     ],
   };
 
+  // congigure chart options
   const donutOptions = {
     responsive: true,
     maintainAspectRatio: false,
-    cutout: "60%",
+    cutout: "60%", // donut
     plugins: {
       legend: {
-        display: false, // use own legend below
+        display: false, // use own legend
       },
       tooltip: {
         callbacks: {
+          // "Coffee sho name: 123 reviews (45.6%)"
           label: (context) => {
             const name = context.label;
             const reviews = context.raw;
@@ -223,19 +239,22 @@ export default function Metrics() {
         </div>
       </header>
 
+      {/*loading and error messages */}
       {loading && <p>Loading coffee shop data…</p>}
       {error && <p className="error-text">{error}</p>}
 
+      {/*only show chart if theres data */}
       {!loading && !error && cafesWithReviews.length > 0 && (
         <section
           className="metrics-chart-wrapper"
           aria-label="Cafe review donut chart"
         >
+          {/* donut chart */}
           <div className="metrics-chart">
             <Doughnut data={donutData} options={donutOptions} />
           </div>
 
-          {/* own legend: color dot + shop name + review count */}
+          {/* own legend: color dot , shop name  and review count */}
           <div className="metrics-legend">
             <h2 className="metrics-legend-title">
               Coffee Shops in this neighborhood
@@ -258,6 +277,7 @@ export default function Metrics() {
         </section>
       )}
 
+      {/* if there are zero shp[s with reviews, show message */}
       {!loading && !error && cafesWithReviews.length === 0 && (
         <p>No coffeeshops with reviews found for this neighborhood!</p>
       )}

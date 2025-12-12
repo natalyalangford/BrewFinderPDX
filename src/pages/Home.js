@@ -2,12 +2,15 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "../styles/app.css";
 import "../styles/home.css";
+
+// feature card images
 import cafesImg from "../assets/home-cafes.jpg";
 import beansImg from "../assets/home-beans.jpg";
 import metricsImg from "../assets/home-metrics.jpg";
 
 export default function Home() {
   return (
+    // wrapper for entire page
     <section className="page home">
       {/* main heading */}
       <header className="home-header">
@@ -18,12 +21,13 @@ export default function Home() {
         </p>
       </header>
 
-      {/* feature cards */}
+      {/* feature cards, each card links to a different page */}
       <section className="feature-grid" aria-label="Main dashboard sections">
         {/* coffee shop card */}
         <article className="feature-card">
           <Link to="/cafes" className="feature-card-link">
             <h2 className="feature-title">Explore Cafes</h2>
+            {/*card image*/}
             <img
               src={cafesImg}
               alt="Illustration of a cozy coffee shop storefront"
@@ -43,6 +47,7 @@ export default function Home() {
         <article className="feature-card">
           <Link to="/metrics" className="feature-card-link">
             <h2 className="feature-title">City Metrics</h2>
+            {/*card image*/}
             <img
               src={metricsImg}
               alt="White coffee cup with beans on a saucer"
@@ -60,6 +65,7 @@ export default function Home() {
         <article className="feature-card">
           <Link to="/about" className="feature-card-link">
             <h2 className="feature-title">About</h2>
+            {/* card image*/}
             <img
               src={beansImg}
               alt="Coffee beans arranged in a speech bubble"
