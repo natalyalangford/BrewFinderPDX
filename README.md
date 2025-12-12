@@ -2,9 +2,11 @@
 
 BrewFinderPDX is a front-end React dashboard that helps users explore cafés and coffee shops around Portland, Oregon. The project uses public APIs to display location data, pricing insights, ratings, and trends through interactive charts and visualizations.
 
-This project was built as the final assignment for CS463: Web Frameworks.
+This project was built as the final assignment for CS464
 
 ---
+
+Deployed Site: https://brew-finder-pdx.vercel.app/home
 
 ## Features
 
