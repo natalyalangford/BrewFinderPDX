@@ -6,6 +6,8 @@ This project was built as the final assignment for CS464
 
 ---
 
+Deployed Site: https://brew-finder-pdx.vercel.app/home
+
 ## Features
 
 Home Dashboard:
